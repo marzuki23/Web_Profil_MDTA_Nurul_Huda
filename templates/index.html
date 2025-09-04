@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Beranda{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="slideshow-container">
+        <div class="slide fade" style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide2.jpg') }}');"></div>
+        <div class="slide fade" style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide1.jpg') }}');"></div>
+        <div class="slide fade" style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide3.jpg') }}');"></div>
+        <div class="slide fade" style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide4.jpg') }}');"></div>
+    </div> <div class="hero-content">
+        <h1 class="hero-title animate-fade-in">{{ data.nama }}</h1>
+        <p class="hero-subtitle animate-slide-up">{{ data.visi }}</p>
+    </div>
+</section>
+
+<section class="about-summary">
+    <div class="container animate-on-scroll fade-in">
+        <h2>Tentang Kami</h2>
+        <p>Kami hadir untuk menanamkan nilai-nilai Islam sejak dini, membekali santri dengan ilmu, iman, dan akhlak mulia. Dengan pendidikan yang terarah, kami berharap lahir generasi yang berkarakter islami, cerdas, dan mampu menghadapi tantangan zaman.</p>
+        <a href="/about" class="btn">Selengkapnya</a>
+    </div>
+</section>
+
+<section class="programs-summary">
+    <div class="container animate-on-scroll fade-in">
+        <h2>Program Unggulan</h2>
+        <div class="program-cards">
+            {% for program in data.programs %}
+            <div class="card animate-on-scroll slide-up">
+                <h3>{{ program.title }}</h3>
+                <p>{{ program.desc }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

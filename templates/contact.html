@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Kontak{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1 class="animate-fade-in">Kontak Kami</h1>
+        <p class="animate-slide-up">Kami senang mendengar dari Anda. Silakan hubungi kami melalui formulir di bawah ini atau melalui informasi kontak yang tersedia.</p>
+    </div>
+</section>
+
+<section class="contact-section">
+    <div class="container contact-grid animate-on-scroll fade-in">
+        <div class="contact-info">
+            <h3>Informasi Kontak</h3>
+            <p><strong>Alamat:</strong> Jl. Brawijaya No. 123, Muarareja, Kota Tegal, Jawa Tengah, Indonesia</p>
+            <p><strong>Telepon:</strong> +62 823-1393-1437</p>
+            <p><strong>Email:</strong> info@madrasahhebat.sch.id</p>
+            <p><strong>Jam Kerja:</strong> Senin - Sabtu, 15:00 - 17:00</p>
+        </div>
+        <div class="contact-form-container">
+            <h3>Kirim Pesan</h3>
+            <form action="#" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Alamat Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan Anda</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

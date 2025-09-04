@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}PSDB - Penerimaan Santri Didik Baru{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1 class="animate-fade-in">{{ data.psdb_info.title }}</h1>
+        <p class="animate-slide-up">{{ data.psdb_info.subtitle }}</p>
+    </div>
+</section>
+
+<section class="psdb-section section-padding">
+    <div class="container animate-on-scroll fade-in">
+        <div class="psdb-content">
+            <div class="psdb-image-container">
+                <img src="{{ url_for('static', filename='images/' + data.psdb_info.image) }}" alt="Banner PSDB" class="psdb-banner-image">
+            </div>
+            <div class="psdb-text">
+                <p class="section-description">{{ data.psdb_info.description }}</p>
+                <a href="https://wa.me/{{ data.psdb_info.whatsapp_number }}?text={{ data.psdb_info.whatsapp_message | urlencode }}" target="_blank" class="btn btn-primary btn-daftar-whatsapp">Daftar Sekarang via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
