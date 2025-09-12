@@ -12,13 +12,16 @@
 
 <section class="psdb-section section-padding">
     <div class="container animate-on-scroll fade-in">
-        <div class="psdb-content">
+        <div class="psdb-content-wrapper"> {# Tambahkan wrapper baru di sini #}
             <div class="psdb-image-container">
                 <img src="{{ url_for('static', filename='images/' + data.psdb_info.image) }}" alt="Banner PSDB" class="psdb-banner-image">
             </div>
             <div class="psdb-text">
                 <p class="section-description">{{ data.psdb_info.description }}</p>
-                <a href="https://wa.me/{{ data.psdb_info.whatsapp_number }}?text={{ data.psdb_info.whatsapp_message | urlencode }}" target="_blank" class="btn btn-primary btn-daftar-whatsapp">Daftar Sekarang via WhatsApp</a>
+                <a href="https://wa.me/{{ data.psdb_info.whatsapp_number }}?text={{ data.psdb_info.whatsapp_message | urlencode }}" target="_blank" class="btn btn-whatsapp-psdb">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    Daftar Sekarang via WhatsApp
+                </a>
             </div>
         </div>
     </div>

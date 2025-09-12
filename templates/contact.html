@@ -5,18 +5,53 @@
 <section class="page-header">
     <div class="container">
         <h1 class="animate-fade-in">Kontak Kami</h1>
-        <p class="animate-slide-up">Kami senang mendengar dari Anda. Silakan hubungi kami melalui formulir di bawah ini atau melalui informasi kontak yang tersedia.</p>
+        <p class="animate-slide-up">Silakan hubungi kami melalui formulir di bawah ini atau melalui informasi kontak yang tersedia.</p>
     </div>
 </section>
 
 <section class="contact-section">
     <div class="container contact-grid animate-on-scroll fade-in">
         <div class="contact-info">
-            <h3>Informasi Kontak</h3>
-            <p><strong>Alamat:</strong> Jl. Brawijaya No. 123, Muarareja, Kota Tegal, Jawa Tengah, Indonesia</p>
-            <p><strong>Telepon:</strong> +62 823-1393-1437</p>
-            <p><strong>Email:</strong> info@madrasahhebat.sch.id</p>
-            <p><strong>Jam Kerja:</strong> Senin - Sabtu, 15:00 - 17:00</p>
+            <h3>Hubungi Kami</h3>
+            <ul class="contact-details-list">
+                <li>
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <span><strong>Alamat:</strong> {{ data.contact_info_data.address }}</span>
+                </li>
+                <li>
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <span><strong>Telepon:</strong> <a href="tel:{{ data.contact_info_data.phone }}" class="contact-link">{{ data.contact_info_data.phone }}</a></span>
+                </li>
+                <li>
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <span><strong>Email:</strong> <a href="mailto:{{ data.contact_info_data.email }}" class="contact-link">{{ data.contact_info_data.email }}</a></span>
+                </li>
+                <li>
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <span><strong>Jam Kerja:</strong> {{ data.contact_info_data.hours }}</span>
+                </li>
+            </ul>
+
+            <div class="social-media-links">
+                <h3>Ikuti Kami</h3>
+                <a href="{{ data.contact_info_data.instagram_url }}" target="_blank" class="social-icon-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <!-- Tambahkan ikon media sosial lainnya jika diperlukan -->
+            </div>
+
+            <div class="contact-map">
+                <h3>Lokasi Kami</h3>
+                <iframe src="{{ data.contact_info_data.google_maps_embed_url }}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
         <div class="contact-form-container">
             <h3>Kirim Pesan</h3>

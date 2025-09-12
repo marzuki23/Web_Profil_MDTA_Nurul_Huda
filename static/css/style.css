@@ -333,7 +333,7 @@ nav {
     font-size: 2.2rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: center;
 }
 
 .content-section .lead {
@@ -651,6 +651,89 @@ footer {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* --- Gaya untuk Halaman PSDB --- */
+.psdb-section {
+    background-color: var(--bg-light); /* Latar belakang sedikit abu-abu */
+    text-align: center;
+}
+
+.psdb-content-wrapper {
+    display: flex;
+    flex-direction: row; /* Default: row untuk desktop */
+    align-items: center;
+    gap: 60px; /* Jarak antar gambar dan teks */
+    max-width: 1000px; /* Batasi lebar total konten */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Shadow yang lebih halus */
+}
+
+.psdb-image-container {
+    flex: 1; /* Ambil proporsi lebar */
+    min-width: 300px; /* Lebar minimum agar tidak terlalu kecil */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Shadow gambar */
+}
+
+.psdb-banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.psdb-image-container:hover .psdb-banner-image {
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.psdb-text {
+    flex: 1.5; /* Teks ambil proporsi lebih besar */
+    text-align: left; /* Teks rata kiri di desktop */
+}
+
+.psdb-text .section-description {
+    margin-left: 0; /* Override center margin */
+    margin-right: 0; /* Override center margin */
+    margin-bottom: 40px;
+    color: #444;
+    text-align: left; /* Teks rata kiri */
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.btn-whatsapp-psdb {
+    background-color: #25D366;
+    /* Warna hijau WhatsApp */
+    color: var(--text-light);
+    font-size: 1.2rem;
+    padding: 15px 35px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    display: inline-flex;
+    /* Agar ikon bisa menyatu */
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.btn-whatsapp-psdb:hover {
+    background-color: #1DA851;
+    /* Warna hijau WhatsApp lebih gelap saat hover */
+    transform: translateY(-3px);
+}
+
+.btn-whatsapp-psdb svg {
+    width: 28px; /* Ukuran ikon lebih besar */
+    height: 28px;
+    fill: var(--text-light); /* Isi ikon dengan warna putih */
+}
+
+
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
     .container {
@@ -711,6 +794,33 @@ footer {
 
     .page-header p {
         font-size: 1.1rem;
+    }
+
+    /* PSDB Responsive */
+    .psdb-content-wrapper {
+        flex-direction: column; /* Ubah ke kolom untuk tablet */
+        gap: 40px;
+        padding: 30px;
+    }
+
+    .psdb-image-container {
+        width: 80%; /* Lebar gambar di tablet */
+        max-width: 500px;
+    }
+
+    .psdb-text {
+        text-align: center; /* Teks rata tengah di tablet */
+    }
+
+    .psdb-text .section-description {
+        text-align: center; /* Teks rata tengah di tablet */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-whatsapp-psdb {
+        font-size: 1.1rem;
+        padding: 12px 30px;
     }
 }
 
@@ -840,7 +950,7 @@ footer {
         font-size: 1.5rem;
     }
 
-    /* Gallery */
+        /* Gallery */
     .gallery-grid {
         grid-template-columns: 1fr;
     }
@@ -891,6 +1001,29 @@ footer {
     .page-header p {
         font-size: 1rem;
     }
+
+    /* PSDB Responsive (di bawah 768px) */
+    .psdb-content-wrapper {
+        gap: 30px;
+        padding: 25px;
+    }
+
+    .psdb-image-container {
+        width: 90%; /* Lebar gambar di mobile */
+    }
+
+    .btn-whatsapp-psdb {
+        font-size: 1rem;
+        padding: 12px 25px;
+        width: 100%; /* Tombol melebar penuh di mobile */
+        max-width: 300px; /* Batasi agar tidak terlalu lebar di tablet kecil */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .btn-whatsapp-psdb svg {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -931,125 +1064,327 @@ footer {
         font-size: 0.9rem;
     }
 
-    /* Gaya untuk Halaman PSDB */
-    .psdb-section {
-        background-color: #fff;
-        text-align: center;
-    }
-
-    .psdb-content {
-        display: flex;
-        flex-direction: column;
-        /* Default ke kolom untuk mobile */
-        align-items: center;
-        gap: 40px;
-        max-width: 900px;
-        margin: 0 auto;
+    /* PSDB Responsive (di bawah 480px) */
+    .psdb-content-wrapper {
+        padding: 20px;
+        gap: 25px;
     }
 
     .psdb-image-container {
-        flex-shrink: 0;
-        /* Mencegah gambar menyusut */
-        width: 100%;
-        max-width: 600px;
-        /* Batasi lebar gambar */
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .psdb-banner-image {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .psdb-text {
-        flex-grow: 1;
-        text-align: center;
+        width: 100%; /* Gambar penuh di hp kecil */
     }
 
     .psdb-text .section-description {
+        font-size: 0.95rem;
+    }
+
+    .btn-whatsapp-psdb {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+        gap: 8px;
+    }
+    .btn-whatsapp-psdb svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* --- Kontak --- */
+.contact-section {
+    padding: 80px 0;
+    background-color: var(--tertiary-color);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* Form sedikit lebih lebar */
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.contact-info {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* Gaya baru untuk daftar detail kontak */
+.contact-details-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px; /* Jarak sebelum social media atau peta */
+}
+
+.contact-details-list li {
+    display: flex; /* Menggunakan flexbox untuk ikon dan teks */
+    align-items: flex-start; /* Rata atas jika teks panjang */
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: #555;
+}
+
+.contact-details-list li:last-child {
+    margin-bottom: 0; /* Tidak ada margin bawah pada item terakhir */
+}
+
+.contact-details-list .icon-wrapper {
+    flex-shrink: 0; /* Jangan biarkan ikon mengecil */
+    width: 30px; /* Ukuran wrapper ikon */
+    height: 30px; /* Ukuran wrapper ikon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    color: var(--secondary-color); /* Warna ikon */
+    background-color: var(--tertiary-color); /* Latar belakang ikon */
+    border-radius: 50%; /* Bentuk lingkaran */
+}
+
+.contact-details-list .icon-wrapper svg {
+    width: 18px; /* Ukuran SVG ikon */
+    height: 18px; /* Ukuran SVG ikon */
+    stroke-width: 2.5; /* Ketebalan garis ikon */
+}
+
+.contact-details-list .contact-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-details-list .contact-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Gaya baru untuk social media links */
+.social-media-links {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+    margin-bottom: 40px; /* Jarak sebelum peta */
+    text-align: left;
+}
+
+.social-media-links h3 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.social-icon-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--primary-color); /* Warna latar ikon */
+    color: var(--text-light); /* Warna ikon */
+    margin-right: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon-link:hover {
+    background-color: var(--secondary-color); /* Warna hover */
+    transform: translateY(-3px);
+}
+
+.social-icon-link svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+}
+
+/* Gaya untuk peta di halaman kontak */
+.contact-map {
+    margin-top: 40px; /* Jarak antara social media dan peta */
+    border-top: 1px solid #eee; /* Garis pemisah */
+    padding-top: 30px;
+}
+
+.contact-map h3 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.contact-map iframe {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden; /* Pastikan border-radius diterapkan */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow untuk peta */
+}
+
+
+.contact-form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+    outline: none;
+}
+
+.contact-form .btn {
+    width: auto;
+    display: block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+}
+
+/* ... (Sisa kode CSS, termasuk media queries) ... */
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    /* ... (CSS sebelumnya) ... */
+
+    /* Contact Grid */
+    .contact-grid {
+        grid-template-columns: 1fr; /* Satu kolom untuk tablet/mobile */
+    }
+
+    /* contact-map di mobile, mungkin perlu penyesuaian tinggi iframe */
+    .contact-map iframe {
+        height: 250px; /* Sesuaikan tinggi peta di perangkat yang lebih kecil */
+    }
+
+    .contact-details-list li {
+        font-size: 1rem;
+    }
+
+    .contact-info h3,
+    .social-media-links h3,
+    .contact-map h3 {
+        font-size: 1.6rem;
+        text-align: center; /* Judul info kontak & social media rata tengah */
+    }
+
+    .contact-details-list {
+        margin-bottom: 25px;
+    }
+
+    .social-media-links {
+        text-align: center; /* Ikon social media rata tengah */
+        padding-top: 20px;
         margin-bottom: 30px;
-        color: #444;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... (CSS sebelumnya) ... */
+
+    /* contact-map di mobile, mungkin perlu penyesuaian tinggi iframe */
+    .contact-map iframe {
+        height: 200px; /* Sesuaikan tinggi peta di perangkat yang lebih kecil */
     }
 
-    .btn-daftar-whatsapp {
-        background-color: #25D366;
-        /* Warna hijau WhatsApp */
-        color: var(--text-light);
-        font-size: 1.2rem;
-        padding: 15px 35px;
-        border-radius: 10px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        text-decoration: none;
-        display: inline-flex;
-        /* Agar ikon bisa menyatu */
-        align-items: center;
-        gap: 10px;
+    .contact-info h3,
+    .social-media-links h3,
+    .contact-map h3 {
+        font-size: 1.5rem;
     }
 
-    .btn-daftar-whatsapp:hover {
-        background-color: #1DA851;
-        /* Warna hijau WhatsApp lebih gelap saat hover */
-        transform: translateY(-3px);
+    .contact-details-list li {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
     }
 
-    /* Jika ingin menambahkan ikon WhatsApp (membutuhkan Font Awesome) */
-    /* .btn-daftar-whatsapp::before { */
-        /* content: '\f232'; */
-        /* Kode ikon WhatsApp dari Font Awesome */
-        /* font-family: 'Font Awesome 5 Brands'; */
-        /* font-weight: 400; */
-        /* font-size: 1.5rem; */
-    /* } */
-
-
-    /* Responsive untuk Halaman PSDB */
-    @media (min-width: 769px) {
-        .psdb-content {
-            flex-direction: row;
-            /* Kembali ke baris untuk desktop */
-            text-align: center;
-        }
-
-        .psdb-text {
-            text-align: center;
-        }
-
-        .psdb-image-container {
-            max-width: 100%;
-            /* Ambil sekitar 45% lebar di desktop */
-        }
-
-        .psdb-text .section-description {
-            text-align: center;
-        }
-
-        .btn-daftar-whatsapp {
-            display: inline-block;
-            /* Kembali ke inline-block di desktop */
-        }
+    .contact-details-list .icon-wrapper {
+        width: 28px;
+        height: 28px;
+        margin-right: 12px;
     }
 
-    @media (max-width: 768px) {
-        .psdb-section {
-            padding: 40px 0;
-        }
+    .contact-details-list .icon-wrapper svg {
+        width: 16px;
+        height: 16px;
+    }
 
-        .psdb-content {
-            gap: 30px;
-        }
+    .social-icon-link {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
 
-        .psdb-image-container {
-            border-radius: 10px;
-        }
+    .social-icon-link svg {
+        width: 22px;
+        height: 22px;
+    }
+}
 
-        .btn-daftar-whatsapp {
-            font-size: 1rem;
-            padding: 12px 25px;
-            text-align: center;
-        }
+@media (max-width: 480px) {
+    /* ... (CSS sebelumnya) ... */
+
+    .contact-info h3,
+    .social-media-links h3,
+    .contact-map h3 {
+        font-size: 1.4rem;
+    }
+
+    .contact-details-list li {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .contact-details-list .icon-wrapper {
+        width: 26px;
+        height: 26px;
+        margin-right: 10px;
+    }
+
+    .social-icon-link {
+        width: 36px;
+        height: 36px;
+        margin-right: 8px;
+    }
+
+    .social-icon-link svg {
+        width: 20px;
+        height: 20px;
     }
 }
