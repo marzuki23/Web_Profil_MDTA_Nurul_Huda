@@ -14,7 +14,8 @@
     <div class="container gallery-grid animate-on-scroll fade-in">
         {% for image in data.gallery_images %}
         <div class="gallery-item">
-            <img src="{{ url_for('static', filename='images/' + image.src) }}" alt="{{ image.alt }}" class="gallery-image">
+            <img src="{{ url_for('static', filename='images/' + image.src) }}" alt="{{ image.alt }}"
+                class="gallery-image">
             <div class="gallery-overlay">
                 <p>{{ image.alt }}</p>
             </div>

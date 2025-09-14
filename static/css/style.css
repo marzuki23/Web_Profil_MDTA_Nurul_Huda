@@ -367,6 +367,81 @@ nav {
     top: 0;
 }
 
+.profile-section {
+    padding: 60px 0;
+    background-color: var(--tertiary-color);
+    /* Latar belakang berbeda */
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 50px;
+}
+
+.profile-card {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.profile-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--primary-color);
+    /* Warna ikon profil */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon svg {
+    width: 35px;
+    height: 35px;
+    color: var(--text-light);
+    /* Warna SVG di dalam lingkaran */
+    stroke-width: 2;
+}
+
+.profile-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.profile-card p {
+    font-size: 1.0rem;
+    color: #555;
+    flex-grow: 1;
+    /* Agar paragraf mengisi ruang yang tersedia */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+    /* Sesuaikan sesuai kebutuhan */
+}
+
+
 /* --- Programs Page (Full Section) --- */
 .programs-full-section {
     padding: 80px 0;
@@ -386,6 +461,10 @@ nav {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    /* Untuk menata ikon dan teks secara vertikal */
+    flex-direction: column;
+    align-items: center;
 }
 
 .program-card-item:hover {
@@ -395,13 +474,47 @@ nav {
 
 .program-icon {
     margin-bottom: 1.5rem;
-    color: var(--secondary-color);
-}
-
-.program-icon svg {
+    /* color: var(--secondary-color); */
+    /* Ini diubah */
     width: 70px;
     /* Ukuran ikon lebih besar */
     height: 70px;
+    background-color: var(--secondary-color);
+    /* Latar belakang ikon */
+    border-radius: 50%;
+    /* Bentuk lingkaran */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Shadow pada ikon */
+}
+
+/* Styling baru untuk gambar program */
+.program-icon img {
+    width: 80px;
+    /* Sesuaikan ukuran gambar */
+    height: 80px;
+    /* Sesuaikan ukuran gambar */
+    object-fit: contain;
+    /* Pastikan gambar tidak terdistorsi */
+    margin-bottom: 15px;
+    border-radius: 50%;
+    /* Jika Anda ingin gambar berbentuk lingkaran */
+    /* Tambahkan bayangan atau efek lain jika diinginkan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    /* Sedikit padding agar gambar tidak terlalu menempel */
+    background-color: #fff;
+    /* Latar belakang putih jika gambar transparan */
+}
+
+/* Styling untuk gambar di bagian summary (jika ditambahkan) */
+.program-summary-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 
 .program-card-item h3 {
@@ -463,7 +576,7 @@ nav {
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
     padding: 20px;
     text-align: center;
 }
@@ -653,29 +766,37 @@ footer {
 
 /* --- Gaya untuk Halaman PSDB --- */
 .psdb-section {
-    background-color: var(--bg-light); /* Latar belakang sedikit abu-abu */
+    background-color: var(--bg-light);
+    /* Latar belakang sedikit abu-abu */
     text-align: center;
 }
 
 .psdb-content-wrapper {
     display: flex;
-    flex-direction: row; /* Default: row untuk desktop */
+    flex-direction: row;
+    /* Default: row untuk desktop */
     align-items: center;
-    gap: 60px; /* Jarak antar gambar dan teks */
-    max-width: 1000px; /* Batasi lebar total konten */
+    gap: 60px;
+    /* Jarak antar gambar dan teks */
+    max-width: 1000px;
+    /* Batasi lebar total konten */
     margin: 0 auto;
     background-color: #fff;
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Shadow yang lebih halus */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Shadow yang lebih halus */
 }
 
 .psdb-image-container {
-    flex: 1; /* Ambil proporsi lebar */
-    min-width: 300px; /* Lebar minimum agar tidak terlalu kecil */
+    flex: 1;
+    /* Ambil proporsi lebar */
+    min-width: 300px;
+    /* Lebar minimum agar tidak terlalu kecil */
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Shadow gambar */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Shadow gambar */
 }
 
 .psdb-banner-image {
@@ -686,20 +807,26 @@ footer {
 }
 
 .psdb-image-container:hover .psdb-banner-image {
-    transform: scale(1.05); /* Efek zoom saat hover */
+    transform: scale(1.05);
+    /* Efek zoom saat hover */
 }
 
 .psdb-text {
-    flex: 1.5; /* Teks ambil proporsi lebih besar */
-    text-align: left; /* Teks rata kiri di desktop */
+    flex: 1.5;
+    /* Teks ambil proporsi lebih besar */
+    text-align: left;
+    /* Teks rata kiri di desktop */
 }
 
 .psdb-text .section-description {
-    margin-left: 0; /* Override center margin */
-    margin-right: 0; /* Override center margin */
+    margin-left: 0;
+    /* Override center margin */
+    margin-right: 0;
+    /* Override center margin */
     margin-bottom: 40px;
     color: #444;
-    text-align: left; /* Teks rata kiri */
+    text-align: left;
+    /* Teks rata kiri */
     font-size: 1.1rem;
     line-height: 1.8;
 }
@@ -728,9 +855,11 @@ footer {
 }
 
 .btn-whatsapp-psdb svg {
-    width: 28px; /* Ukuran ikon lebih besar */
+    width: 28px;
+    /* Ukuran ikon lebih besar */
     height: 28px;
-    fill: var(--text-light); /* Isi ikon dengan warna putih */
+    fill: var(--text-light);
+    /* Isi ikon dengan warna putih */
 }
 
 
@@ -798,22 +927,26 @@ footer {
 
     /* PSDB Responsive */
     .psdb-content-wrapper {
-        flex-direction: column; /* Ubah ke kolom untuk tablet */
+        flex-direction: column;
+        /* Ubah ke kolom untuk tablet */
         gap: 40px;
         padding: 30px;
     }
 
     .psdb-image-container {
-        width: 80%; /* Lebar gambar di tablet */
+        width: 80%;
+        /* Lebar gambar di tablet */
         max-width: 500px;
     }
 
     .psdb-text {
-        text-align: center; /* Teks rata tengah di tablet */
+        text-align: center;
+        /* Teks rata tengah di tablet */
     }
 
     .psdb-text .section-description {
-        text-align: center; /* Teks rata tengah di tablet */
+        text-align: center;
+        /* Teks rata tengah di tablet */
         margin-left: auto;
         margin-right: auto;
     }
@@ -933,24 +1066,94 @@ footer {
         font-size: 1rem;
     }
 
-    /* Programs Summary & Full */
-    .program-cards,
+    /* --- Programs Page (Full Section) --- */
+    .programs-full-section {
+        padding: 80px 0;
+        background-color: var(--bg-light);
+    }
+
     .program-list {
-        grid-template-columns: 1fr;
-        /* Satu kolom untuk mobile */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
     }
 
-    .program-cards .card,
     .program-card-item {
-        padding: 2rem;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        /* Untuk menata ikon dan teks secara vertikal */
+        flex-direction: column;
+        align-items: center;
     }
 
-    .program-cards .card h3,
+    .program-card-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .program-icon {
+        margin-bottom: 1.5rem;
+        /* color: var(--secondary-color); */
+        /* Ini diubah */
+        width: 70px;
+        /* Ukuran ikon lebih besar */
+        height: 70px;
+        background-color: var(--secondary-color);
+        /* Latar belakang ikon */
+        border-radius: 50%;
+        /* Bentuk lingkaran */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* Shadow pada ikon */
+    }
+
+    /* Styling baru untuk gambar program */
+    .program-icon img {
+        width: 80px;
+        /* Sesuaikan ukuran gambar */
+        height: 80px;
+        /* Sesuaikan ukuran gambar */
+        object-fit: contain;
+        /* Pastikan gambar tidak terdistorsi */
+        margin-bottom: 15px;
+        border-radius: 50%;
+        /* Jika Anda ingin gambar berbentuk lingkaran */
+        /* Tambahkan bayangan atau efek lain jika diinginkan */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        /* Sedikit padding agar gambar tidak terlalu menempel */
+        background-color: #fff;
+        /* Latar belakang putih jika gambar transparan */
+    }
+
+    /* Styling untuk gambar di bagian summary (jika ditambahkan) */
+    .program-summary-icon img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 10px;
+    }
+
     .program-card-item h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
     }
 
-        /* Gallery */
+    .program-card-item p {
+        font-size: 1rem;
+        color: #555;
+    }
+
+      /* Gallery */
     .gallery-grid {
         grid-template-columns: 1fr;
     }
@@ -963,428 +1166,399 @@ footer {
         font-size: 1rem;
     }
 
-    /* Contact */
-    .contact-info h3,
-    .contact-form h3 {
-        font-size: 1.5rem;
+    /* --- Kontak --- */
+    .contact-section {
+        padding: 80px 0;
+        background-color: var(--tertiary-color);
     }
 
-    .contact-info p {
-        font-size: 0.95rem;
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        /* Form sedikit lebih lebar */
+        gap: 40px;
+        align-items: flex-start;
+    }
+
+    .contact-info {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-info h3 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+
+    /* Gaya baru untuk daftar detail kontak */
+    .contact-details-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+        /* Jarak sebelum social media atau peta */
+    }
+
+    .contact-details-list li {
+        display: flex;
+        /* Menggunakan flexbox untuk ikon dan teks */
+        align-items: flex-start;
+        /* Rata atas jika teks panjang */
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+        color: #555;
+    }
+
+    .contact-details-list li:last-child {
+        margin-bottom: 0;
+        /* Tidak ada margin bawah pada item terakhir */
+    }
+
+    .contact-details-list .icon-wrapper {
+        flex-shrink: 0;
+        /* Jangan biarkan ikon mengecil */
+        width: 30px;
+        /* Ukuran wrapper ikon */
+        height: 30px;
+        /* Ukuran wrapper ikon */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+        color: var(--secondary-color);
+        /* Warna ikon */
+        background-color: var(--tertiary-color);
+        /* Latar belakang ikon */
+        border-radius: 50%;
+        /* Bentuk lingkaran */
+    }
+
+    .contact-details-list .icon-wrapper svg {
+        width: 18px;
+        /* Ukuran SVG ikon */
+        height: 18px;
+        /* Ukuran SVG ikon */
+        stroke-width: 2.5;
+        /* Ketebalan garis ikon */
+    }
+
+    .contact-details-list .contact-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .contact-details-list .contact-link:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+    }
+
+    /* Gaya baru untuk social media links */
+    .social-media-links {
+        margin-top: 30px;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+        margin-bottom: 40px;
+        /* Jarak sebelum peta */
+        text-align: left;
+    }
+
+    .social-media-links h3 {
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+    }
+
+    .social-icon-link {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        /* Warna latar ikon */
+        color: var(--text-light);
+        /* Warna ikon */
+        margin-right: 15px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-icon-link:hover {
+        background-color: var(--secondary-color);
+        /* Warna hover */
+        transform: translateY(-3px);
+    }
+
+    .social-icon-link svg {
+        width: 24px;
+        height: 24px;
+        stroke-width: 2;
+    }
+
+    /* Gaya untuk peta di halaman kontak */
+    .contact-map {
+        margin-top: 40px;
+        /* Jarak antara social media dan peta */
+        border-top: 1px solid #eee;
+        /* Garis pemisah */
+        padding-top: 30px;
+    }
+
+    .contact-map h3 {
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+    }
+
+    .contact-map iframe {
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        /* Pastikan border-radius diterapkan */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        /* Shadow untuk peta */
+    }
+
+
+    .contact-form-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-form h3 {
+        color: var(--primary-color);
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
     }
 
     .form-group label {
-        font-size: 0.95rem;
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #444;
     }
 
     .form-group input,
     .form-group textarea {
-        padding: 10px 12px;
-        font-size: 0.95rem;
-    }
-
-    /* Footer */
-    footer {
-        padding: 1.5rem 0;
-        font-size: 0.85rem;
-    }
-
-    /* Page Header */
-    .page-header {
-        padding: 80px 0 40px;
-    }
-
-    .page-header h1 {
-        font-size: 2.5rem;
-    }
-
-    .page-header p {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
         font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* PSDB Responsive (di bawah 768px) */
-    .psdb-content-wrapper {
-        gap: 30px;
-        padding: 25px;
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+        outline: none;
     }
 
-    .psdb-image-container {
-        width: 90%; /* Lebar gambar di mobile */
+    .contact-form .btn {
+        width: auto;
+        display: block;
+        margin-top: 20px;
+        padding: 12px 30px;
+        font-size: 1.1rem;
     }
 
-    .btn-whatsapp-psdb {
-        font-size: 1rem;
-        padding: 12px 25px;
-        width: 100%; /* Tombol melebar penuh di mobile */
-        max-width: 300px; /* Batasi agar tidak terlalu lebar di tablet kecil */
-        margin-left: auto;
-        margin-right: auto;
+    /* ... (Sisa kode CSS, termasuk media queries) ... */
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        /* ... (CSS sebelumnya) ... */
+
+        /* Contact Grid */
+        .contact-grid {
+            grid-template-columns: 1fr;
+            /* Satu kolom untuk tablet/mobile */
+        }
+
+        /* contact-map di mobile, mungkin perlu penyesuaian tinggi iframe */
+        .contact-map iframe {
+            height: 250px;
+            /* Sesuaikan tinggi peta di perangkat yang lebih kecil */
+        }
+
+        .contact-details-list li {
+            font-size: 1rem;
+        }
+
+        .contact-info h3,
+        .social-media-links h3,
+        .contact-map h3 {
+            font-size: 1.6rem;
+            text-align: center;
+            /* Judul info kontak & social media rata tengah */
+        }
+
+        .contact-details-list {
+            margin-bottom: 25px;
+        }
+
+        .social-media-links {
+            text-align: center;
+            /* Ikon social media rata tengah */
+            padding-top: 20px;
+            margin-bottom: 30px;
+        }
     }
-    .btn-whatsapp-psdb svg {
+
+    /* Menghilangkan titik (bullet points) pada daftar informasi kontak */
+    .contact-info-list {
+        list-style-type: none;
+        /* Ini akan menghilangkan titik-titik */
+        padding-left: 0;
+        /* Menghilangkan indentasi default pada daftar */
+        margin: 0;
+        /* Mengatur margin menjadi 0 */
+    }
+
+    /* Penyesuaian untuk setiap item daftar agar ikon dan teks sejajar */
+    .contact-info-list li {
+        display: flex;
+        /* Menggunakan flexbox untuk penataan item */
+        align-items: flex-start;
+        /* Menjaga ikon sejajar dengan baris pertama teks */
+        margin-bottom: 15px;
+        /* Jarak antar setiap item informasi kontak */
+        line-height: 1.5;
+        /* Sedikit spasi baris untuk keterbacaan */
+    }
+
+    /* Styling untuk wrapper ikon agar ada jarak antara ikon dan teks */
+    .contact-info-list li .icon-wrapper {
+        margin-right: 15px;
+        /* Jarak antara ikon dan teks */
+        flex-shrink: 0;
+        /* Mencegah ikon menyusut */
+        color: var(--primary-color, #28a745);
+        /* Ganti dengan warna utama Anda jika ada */
+    }
+
+    /* Styling untuk SVG di dalam icon-wrapper */
+    .contact-info-list li .icon-wrapper svg {
         width: 24px;
         height: 24px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo img {
-        height: 45px;
+        vertical-align: middle;
+        /* Memastikan ikon sejajar secara vertikal */
     }
 
-    .school-name-nav {
-        font-size: 0.9rem;
-    }
-
-    .hero-title {
-        font-size: 2.2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .btn {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .section-padding {
-        padding: 40px 0;
-    }
-
-    .page-header h1 {
-        font-size: 2rem;
-    }
-
-    .page-header p {
-        font-size: 0.9rem;
-    }
-
-    /* PSDB Responsive (di bawah 480px) */
-    .psdb-content-wrapper {
-        padding: 20px;
-        gap: 25px;
-    }
-
-    .psdb-image-container {
-        width: 100%; /* Gambar penuh di hp kecil */
-    }
-
-    .psdb-text .section-description {
-        font-size: 0.95rem;
-    }
-
-    .btn-whatsapp-psdb {
-        font-size: 0.95rem;
-        padding: 10px 20px;
-        gap: 8px;
-    }
-    .btn-whatsapp-psdb svg {
-        width: 22px;
-        height: 22px;
-    }
-}
-
-/* --- Kontak --- */
-.contact-section {
-    padding: 80px 0;
-    background-color: var(--tertiary-color);
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    /* Form sedikit lebih lebar */
-    gap: 40px;
-    align-items: flex-start;
-}
-
-.contact-info {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-}
-
-.contact-info h3 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-/* Gaya baru untuk daftar detail kontak */
-.contact-details-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px; /* Jarak sebelum social media atau peta */
-}
-
-.contact-details-list li {
-    display: flex; /* Menggunakan flexbox untuk ikon dan teks */
-    align-items: flex-start; /* Rata atas jika teks panjang */
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-    color: #555;
-}
-
-.contact-details-list li:last-child {
-    margin-bottom: 0; /* Tidak ada margin bawah pada item terakhir */
-}
-
-.contact-details-list .icon-wrapper {
-    flex-shrink: 0; /* Jangan biarkan ikon mengecil */
-    width: 30px; /* Ukuran wrapper ikon */
-    height: 30px; /* Ukuran wrapper ikon */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
-    color: var(--secondary-color); /* Warna ikon */
-    background-color: var(--tertiary-color); /* Latar belakang ikon */
-    border-radius: 50%; /* Bentuk lingkaran */
-}
-
-.contact-details-list .icon-wrapper svg {
-    width: 18px; /* Ukuran SVG ikon */
-    height: 18px; /* Ukuran SVG ikon */
-    stroke-width: 2.5; /* Ketebalan garis ikon */
-}
-
-.contact-details-list .contact-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.contact-details-list .contact-link:hover {
-    color: var(--secondary-color);
-    text-decoration: underline;
-}
-
-/* Gaya baru untuk social media links */
-.social-media-links {
-    margin-top: 30px;
-    border-top: 1px solid #eee;
-    padding-top: 25px;
-    margin-bottom: 40px; /* Jarak sebelum peta */
-    text-align: left;
-}
-
-.social-media-links h3 {
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-    color: var(--primary-color);
-}
-
-.social-icon-link {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: var(--primary-color); /* Warna latar ikon */
-    color: var(--text-light); /* Warna ikon */
-    margin-right: 15px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.social-icon-link:hover {
-    background-color: var(--secondary-color); /* Warna hover */
-    transform: translateY(-3px);
-}
-
-.social-icon-link svg {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2;
-}
-
-/* Gaya untuk peta di halaman kontak */
-.contact-map {
-    margin-top: 40px; /* Jarak antara social media dan peta */
-    border-top: 1px solid #eee; /* Garis pemisah */
-    padding-top: 30px;
-}
-
-.contact-map h3 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: var(--primary-color);
-}
-
-.contact-map iframe {
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden; /* Pastikan border-radius diterapkan */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow untuk peta */
-}
-
-
-.contact-form-container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-}
-
-.contact-form h3 {
-    color: var(--primary-color);
-    margin-bottom: 25px;
-    font-size: 1.8rem;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #444;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
-    outline: none;
-}
-
-.contact-form .btn {
-    width: auto;
-    display: block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-}
-
-/* ... (Sisa kode CSS, termasuk media queries) ... */
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    /* ... (CSS sebelumnya) ... */
-
-    /* Contact Grid */
-    .contact-grid {
-        grid-template-columns: 1fr; /* Satu kolom untuk tablet/mobile */
-    }
-
-    /* contact-map di mobile, mungkin perlu penyesuaian tinggi iframe */
-    .contact-map iframe {
-        height: 250px; /* Sesuaikan tinggi peta di perangkat yang lebih kecil */
-    }
-
-    .contact-details-list li {
+    /* Styling untuk teks yang mengikuti ikon */
+    .contact-info-list li span,
+    .contact-info-list li a.contact-link {
         font-size: 1rem;
+        /* Ukuran font yang konsisten */
+        color: #333;
+        /* Warna teks */
+        text-decoration: none;
+        /* Menghilangkan garis bawah pada tautan jika tidak diinginkan */
     }
 
-    .contact-info h3,
-    .social-media-links h3,
-    .contact-map h3 {
-        font-size: 1.6rem;
-        text-align: center; /* Judul info kontak & social media rata tengah */
+    .contact-info-list li strong {
+        color: #111;
+        /* Warna lebih gelap untuk label tebal */
+        margin-right: 5px;
+        /* Jarak antara label dan nilai */
     }
 
-    .contact-details-list {
-        margin-bottom: 25px;
+    /* Optional: Styling untuk tautan di dalam daftar */
+    .contact-info-list li a.contact-link {
+        color: var(--secondary-color, #007bff);
+        /* Warna tautan */
+        transition: color 0.3s ease;
     }
 
-    .social-media-links {
-        text-align: center; /* Ikon social media rata tengah */
-        padding-top: 20px;
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* ... (CSS sebelumnya) ... */
-
-    /* contact-map di mobile, mungkin perlu penyesuaian tinggi iframe */
-    .contact-map iframe {
-        height: 200px; /* Sesuaikan tinggi peta di perangkat yang lebih kecil */
+    .contact-info-list li a.contact-link:hover {
+        color: var(--primary-color, #28a745);
+        /* Warna tautan saat hover */
     }
 
-    .contact-info h3,
-    .social-media-links h3,
-    .contact-map h3 {
-        font-size: 1.5rem;
+    @media (max-width: 768px) {
+        /* ... (CSS sebelumnya) ... */
+
+        /* contact-map di mobile, mungkin perlu penyesuaian tinggi iframe */
+        .contact-map iframe {
+            height: 200px;
+            /* Sesuaikan tinggi peta di perangkat yang lebih kecil */
+        }
+
+        .contact-info h3,
+        .social-media-links h3,
+        .contact-map h3 {
+            font-size: 1.5rem;
+        }
+
+        .contact-details-list li {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-details-list .icon-wrapper {
+            width: 28px;
+            height: 28px;
+            margin-right: 12px;
+        }
+
+        .contact-details-list .icon-wrapper svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .social-icon-link {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .social-icon-link svg {
+            width: 22px;
+            height: 22px;
+        }
     }
 
-    .contact-details-list li {
-        font-size: 0.95rem;
-        margin-bottom: 12px;
-    }
+    @media (max-width: 480px) {
+        /* ... (CSS sebelumnya) ... */
 
-    .contact-details-list .icon-wrapper {
-        width: 28px;
-        height: 28px;
-        margin-right: 12px;
-    }
+        .contact-info h3,
+        .social-media-links h3,
+        .contact-map h3 {
+            font-size: 1.4rem;
+        }
 
-    .contact-details-list .icon-wrapper svg {
-        width: 16px;
-        height: 16px;
-    }
+        .contact-details li {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
 
-    .social-icon-link {
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
-    }
+        .contact-details .icon-wrapper {
+            width: 26px;
+            height: 26px;
+            margin-right: 10px;
+        }
 
-    .social-icon-link svg {
-        width: 22px;
-        height: 22px;
-    }
-}
+        .social-icon-link {
+            width: 36px;
+            height: 36px;
+            margin-right: 8px;
+        }
 
-@media (max-width: 480px) {
-    /* ... (CSS sebelumnya) ... */
-
-    .contact-info h3,
-    .social-media-links h3,
-    .contact-map h3 {
-        font-size: 1.4rem;
-    }
-
-    .contact-details-list li {
-        font-size: 0.9rem;
-        margin-bottom: 10px;
-    }
-
-    .contact-details-list .icon-wrapper {
-        width: 26px;
-        height: 26px;
-        margin-right: 10px;
-    }
-
-    .social-icon-link {
-        width: 36px;
-        height: 36px;
-        margin-right: 8px;
-    }
-
-    .social-icon-link svg {
-        width: 20px;
-        height: 20px;
+        .social-icon-link svg {
+            width: 20px;
+            height: 20px;
+        }
     }
 }

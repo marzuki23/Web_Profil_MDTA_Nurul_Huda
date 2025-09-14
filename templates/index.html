@@ -5,11 +5,18 @@
 {% block content %}
 <section class="hero-section">
     <div class="slideshow-container">
-        <div class="slide fade" style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide2.jpg') }}');"></div>
-        <div class="slide fade" style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide1.jpg') }}');"></div>
-        <div class="slide fade" style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide3.jpg') }}');"></div>
-        <div class="slide fade" style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide4.jpg') }}');"></div>
-    </div> <div class="hero-content">
+        <div class="slide fade"
+            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide2.jpg') }}');"></div>
+        <div class="slide fade"
+            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide1.jpg') }}');"></div>
+        <div class="slide fade"
+            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide3.jpg') }}');"></div>
+        <div class="slide fade"
+            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide4.jpg') }}');"></div>
+        <div class="slide fade"
+            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide5.jpg') }}');"></div>
+    </div>
+    <div class="hero-content">
         <h1 class="hero-title animate-fade-in">{{ data.nama }}</h1>
         <p class="hero-subtitle animate-slide-up">{{ data.visi }}</p>
     </div>
@@ -18,7 +25,9 @@
 <section class="about-summary">
     <div class="container animate-on-scroll fade-in">
         <h2>Tentang Kami</h2>
-        <p>Kami hadir untuk menanamkan nilai-nilai Islam sejak dini, membekali santri dengan ilmu, iman, dan akhlak mulia. Dengan pendidikan yang terarah, kami berharap lahir generasi yang berkarakter islami, cerdas, dan mampu menghadapi tantangan zaman.</p>
+        <p>Kami hadir untuk menanamkan nilai-nilai Islam sejak dini, membekali santri dengan ilmu, iman, dan akhlak
+            mulia. Dengan pendidikan yang terarah, kami berharap lahir generasi yang berkarakter islami, cerdas, dan
+            mampu menghadapi tantangan zaman.</p>
         <a href="/about" class="btn">Selengkapnya</a>
     </div>
 </section>
@@ -29,6 +38,11 @@
         <div class="program-cards">
             {% for program in data.programs %}
             <div class="card animate-on-scroll slide-up">
+                {% if program.image_url %} {# Cek apakah image_url ada #}
+                <div class="program-summary-icon"> {# Tambahkan div untuk styling ikon #}
+                    <img src="{{ url_for('static', filename=program.image_url) }}" alt="{{ program.title }}">
+                </div>
+                {% endif %}
                 <h3>{{ program.title }}</h3>
                 <p>{{ program.desc }}</p>
             </div>

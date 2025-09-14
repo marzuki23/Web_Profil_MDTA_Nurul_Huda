@@ -6,7 +6,8 @@
 <section class="page-header">
     <div class="container">
         <h1 class="animate-fade-in">Program Unggulan</h1>
-        <p class="animate-slide-up">Kami menyediakan beragam program pendidikan untuk mendukung potensi dan bakat siswa.</p>
+        <p class="animate-slide-up">Kami menyediakan beragam program pendidikan untuk mendukung potensi dan bakat siswa.
+        </p>
     </div>
 </section>
 
@@ -14,11 +15,10 @@
     <div class="container">
         <div class="program-list">
             {% for program in data.programs %}
-            <div class="program-card-item animate-on-scroll fade-in">
+                        <div class="program-card-item animate-on-scroll fade-in"> {# Penambahan kelas animasi #}
                 <div class="program-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
-                        <path d="M8.5 2.687a.5.5 0 0 0-.5.447v.14a.5.5 0 0 1-.5.54h-2a.5.5 0 0 1 0-.54H7V2.687a.5.5 0 0 0-.5-.447h-5a.5.5 0 0 0-.5.447v9.117c0 .762.38 1.48.973 1.944.593.464 1.348.71 2.148.71h5.816a.5.5 0 0 0 .5-.447V2.687a.5.5 0 0 0-.5-.447h-5a.5.5 0 0 0-.5.447v9.117c0 .762.38 1.48.973 1.944.593.464 1.348.71 2.148.71h5.816a.5.5 0 0 0 .5-.447V2.687a.5.5 0 0 0-.5-.447h-5a.5.5 0 0 0-.5.447v.14a.5.5 0 0 1-.5.54h-2a.5.5 0 0 1 0-.54H7V2.687a.5.5 0 0 0-.5-.447h-5a.5.5 0 0 0-.5.447v9.117c0 .762.38 1.48.973 1.944.593.464 1.348.71 2.148.71h5.816a.5.5 0 0 0 .5-.447V2.687a.5.5 0 0 0-.5-.447z"/>
-                    </svg>
+                    {# Menggunakan tag <img> untuk menampilkan gambar #}
+                    <img src="{{ url_for('static', filename=program.image_url) }}" alt="{{ program.title }}">
                 </div>
                 <h3>{{ program.title }}</h3>
                 <p>{{ program.desc }}</p>

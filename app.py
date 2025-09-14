@@ -12,9 +12,21 @@ madrasah_data = {
         'Membentuk santri yang cinta ilmu serta memiliki semangat belajar sepanjang hayat.'
     ],
     'programs': [
-        {'title': 'Tahfidz Al-Qur\'an', 'desc': 'Program unggulan menghafal Al-Qur\'an dengan metode cepat dan efektif.'},
-        {'title': 'Bahasa Arab dan Inggris', 'desc': 'Fokus pada kemampuan komunikasi aktif dalam bahasa Arab dan Inggris.'},
-        {'title': 'Robotik dan Sains', 'desc': 'Mengembangkan kreativitas dan nalar ilmiah melalui kegiatan praktikum dan lomba.'},
+        {
+            'title': 'Praktik Ibadah',
+            'desc': 'Melatih santri melaksanakan wudhu, sholat, doa, dan ibadah lainnya dengan benar.',
+            'image_url': 'programs/ibadah.png' # Ganti dengan nama file gambar Anda
+        },
+        {
+            'title': 'Akidah & Akhlak',
+            'desc': 'Menanamkan dasar iman dan membentuk akhlak mulia dalam kehidupan sehari-hari.',
+            'image_url': 'programs/kajian.jpg' # Ganti dengan nama file gambar Anda
+        },
+        {
+            'title': 'Tartil & Tahsinul Qur’an',
+            'desc': 'Membimbing santri membaca Al-Qur’an dengan benar sesuai tajwid, dan lancar.',
+            'image_url': 'programs/tartil.png' # Ganti dengan nama file gambar Anda
+        },
     ],
     'gallery_images': [
         {'src': 'gallery/foto11.jpg', 'alt': 'Santri Belajar Di Kelas'},
@@ -23,12 +35,15 @@ madrasah_data = {
         {'src': 'gallery/foto3.jpg', 'alt': 'Ziarah Jawa Tengah Bersama Santriwan dan Santriwati'},
         {'src': 'gallery/foto4.jpg', 'alt': 'Juara Kegiatan PORSADIN (Pekan Olahraga dan Seni Antar Diniyah) Tingkat Kecamatan'},
         {'src': 'gallery/foto5.jpg', 'alt': 'Juara Kegiatan PORSADIN (Pekan Olahraga dan Seni Antar Diniyah) Tingkat Kecamatan'},
-        {'src': 'gallery/foto6.jpg', 'alt': 'Pawai Taaruf Santri'},
-        {'src': 'gallery/foto9.jpg', 'alt': 'Haflah Penampilan Santri'},
+        {'src': 'gallery/foto6.jpg', 'alt': 'Pawai Ta’aruf Santri'},
+        {'src': 'gallery/foto9.jpg', 'alt': 'Haflah Akhirussanah Penampilan Santri'},
         {'src': 'gallery/foto7.jpg', 'alt': 'Pembagian Kenang-Kenangan Santri Kelas 4'},
         {'src': 'gallery/foto8.jpg', 'alt': 'Pembagian Ta’jil Pada Bulan Ramadhan'},
         {'src': 'gallery/foto10.jpg', 'alt': 'Mengikuti Kegiatan Upacara Dalam Rangka Hari Santri Nasional'},
-        {'src': 'gallery/foto12.jpg', 'alt': 'Santri Kelas 4'},
+        {'src': 'gallery/foto14.jpg', 'alt': 'Maulid Nabi Muhammad SAW'},
+        # {'src': 'gallery/foto12.jpg', 'alt': 'Santri Kelas 4'},
+        {'src': 'gallery/foto13.jpg', 'alt': 'Penyerahan Ijazah Santri Kelas 4'},
+        # {'src': 'gallery/foto16.jpg', 'alt': 'Piala PORSADIN'},
     ],
     # Data khusus untuk halaman PSDB
     'psdb_info': {
@@ -39,7 +54,6 @@ madrasah_data = {
         'whatsapp_number': '6282323939692', # Ganti dengan nomor WhatsApp Anda
         'whatsapp_message': 'Assalamualaikum, saya ingin mendaftar Penerimaan Santri Didik Baru di Madrasah Nurul Huda. Mohon informasinya.'
     },
-    # Tambahkan informasi kontak di sini agar lebih dinamis
     'contact_info_data': {
         'address': 'Jl. Brawijaya No. 168, Muarareja, Kota Tegal, Jawa Tengah, Indonesia',
         'phone': '+62 823-1393-1437',
