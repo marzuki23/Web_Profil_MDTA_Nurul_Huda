@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
+import os
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -30,20 +32,22 @@ madrasah_data = {
     ],
     'gallery_images': [
         {'src': 'gallery/foto11.jpg', 'alt': 'Santri Belajar Di Kelas'},
-        {'src': 'gallery/foto1.jpg', 'alt': 'Santri Mengikuti Ujian Akhir Madrasah'},
+        {'src': 'gallery/foto1.jpeg', 'alt': 'Santri Mengikuti Ujian Akhir Madrasah'},
         {'src': 'gallery/foto2.jpg', 'alt': 'Kegiatan PERSADA (Perkemahan Santri Diniyah)'},
-        {'src': 'gallery/foto3.jpg', 'alt': 'Ziarah Jawa Tengah Bersama Santriwan dan Santriwati'},
+        {'src': 'gallery/foto3.png', 'alt': 'Ziarah Jawa Tengah Bersama Santriwan dan Santriwati'},
         {'src': 'gallery/foto4.jpg', 'alt': 'Juara Kegiatan PORSADIN (Pekan Olahraga dan Seni Antar Diniyah) Tingkat Kecamatan'},
         {'src': 'gallery/foto5.jpg', 'alt': 'Juara Kegiatan PORSADIN (Pekan Olahraga dan Seni Antar Diniyah) Tingkat Kecamatan'},
         {'src': 'gallery/foto6.jpg', 'alt': 'Pawai Ta’aruf Santri'},
         {'src': 'gallery/foto9.jpg', 'alt': 'Haflah Akhirussanah Penampilan Santri'},
         {'src': 'gallery/foto7.jpg', 'alt': 'Pembagian Kenang-Kenangan Santri Kelas 4'},
-        {'src': 'gallery/foto8.jpg', 'alt': 'Pembagian Ta’jil Pada Bulan Ramadhan'},
+        {'src': 'gallery/foto8.png', 'alt': 'Pembagian Ta’jil Pada Bulan Ramadhan'},
         {'src': 'gallery/foto10.jpg', 'alt': 'Mengikuti Kegiatan Upacara Dalam Rangka Hari Santri Nasional'},
         {'src': 'gallery/foto14.jpg', 'alt': 'Maulid Nabi Muhammad SAW'},
-        # {'src': 'gallery/foto12.jpg', 'alt': 'Santri Kelas 4'},
+        {'src': 'gallery/foto12.png', 'alt': 'Santri Kelas 4'},
         {'src': 'gallery/foto13.jpg', 'alt': 'Penyerahan Ijazah Santri Kelas 4'},
-        # {'src': 'gallery/foto16.jpg', 'alt': 'Piala PORSADIN'},
+        {'src': 'gallery/foto16.jpg', 'alt': 'Piala PORSADIN'},
+        {'src': 'gallery/foto17.jpg', 'alt': 'Dewan Assatidz'},
+        {'src': 'gallery/foto18.jpg', 'alt': 'Kunjungan Tim Monitoring UABD (Dinas Pendidikan Kota Tegal, DPRD Kota Tegal, FKDT Kota Tegal)'},
     ],
     # Data khusus untuk halaman PSDB
     'psdb_info': {
@@ -60,6 +64,8 @@ madrasah_data = {
         'email': 'mdtanurulhudamuarareja@gmail.com',
         'hours': 'Senin - Sabtu, 15:00 - 17:00',
         'instagram_url': 'https://www.instagram.com/mdtanurulhudamj?igsh=eHpvY21laXRtOXM=',
+        'tiktok_url': 'https://www.tiktok.com/@mdtanurulhudamj?_r=1&_d=ea06dm7lmh1bed&sec_uid=MS4wLjABAAAAgRNMDDVSpzJFQyH5cIn6nOv3jW-kAyNwrexQMD_G61_InQLiqCQEU5L9dAKihKPE&share_author_id=7591412943016379413&sharer_language=id&source=h5_t&u_code=f1992eil99230b&timestamp=1775903554&user_id=7591412943016379413&sec_user_id=MS4wLjABAAAAgRNMDDVSpzJFQyH5cIn6nOv3jW-kAyNwrexQMD_G61_InQLiqCQEU5L9dAKihKPE&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7627314675298486037&share_link_id=6607eb49-54df-46f8-9a15-d02be0a679e5&share_app_id=1180&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1',
+        'youtube_url': 'https://youtube.com/@mdtanurulhudamuarareja?si=lSsCQ0-W2NHUY-7z',
         'google_maps_embed_url': 'https://www.google.com/maps/embed?pb=!4v1757684514102!6m8!1m7!1sZxB6jrXqgoKzA31o7zCVZg!2m2!1d-6.847288180137246!2d109.1093265261672!3f336!4f0!5f0.7820865974627469'
     }
 }
@@ -89,9 +95,29 @@ def psdb():
     """Halaman Penerimaan Santri Didik Baru"""
     return render_template('psdb.html', data=madrasah_data)
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
     """Halaman Kontak"""
+    if request.method == 'POST':
+        # Ambil data dari form
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
+        
+        # Simpan ke file
+        messages_file = 'messages.txt'
+        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        with open(messages_file, 'a', encoding='utf-8') as f:
+            f.write(f"\n{'='*50}\n")
+            f.write(f"Waktu: {timestamp}\n")
+            f.write(f"Nama: {name}\n")
+            f.write(f"Email: {email}\n")
+            f.write(f"Pesan: {message}\n")
+        
+        # Redirect ke halaman kontak dengan pesan sukses
+        return redirect(url_for('contact') + '?success=true')
+    
     # Kirim data kontak ke template
     return render_template('contact.html', data=madrasah_data)
 

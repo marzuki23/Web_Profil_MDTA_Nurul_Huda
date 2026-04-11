@@ -5,16 +5,12 @@
 {% block content %}
 <section class="hero-section">
     <div class="slideshow-container">
-        <div class="slide fade"
-            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide2.jpg') }}');"></div>
-        <div class="slide fade"
-            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide1.jpg') }}');"></div>
-        <div class="slide fade"
-            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide3.jpg') }}');"></div>
-        <div class="slide fade"
-            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide4.jpg') }}');"></div>
-        <div class="slide fade"
-            style="background-image: url('{{ url_for('static', filename='images/hero-slides/slide5.jpg') }}');"></div>
+        <div class="slide fade" style="background-image: url('{{ url_for("static", filename="images/hero-slides/slide2.jpg") }}');"></div>
+        <div class="slide fade" style="background-image: url('{{ url_for("static", filename="images/hero-slides/slide1.jpg") }}');"></div>
+        <div class="slide fade" style="background-image: url('{{ url_for("static", filename="images/hero-slides/slide3.jpg") }}');"></div>
+        <div class="slide fade" style="background-image: url('{{ url_for("static", filename="images/hero-slides/slide4.jpg") }}');"></div>
+        <div class="slide fade" style="background-image: url('{{ url_for("static", filename="images/hero-slides/slide5.jpg") }}');"></div>
+        <div class="slide fade" style="background-image: url('{{ url_for("static", filename="images/hero-slides/slide6.jpg") }}');"></div>
     </div>
     <div class="hero-content">
         <h1 class="hero-title animate-fade-in">{{ data.nama }}</h1>
