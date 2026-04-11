@@ -1,8 +1,26 @@
 from flask import Flask, render_template, request, redirect, url_for
-import os
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
 
 app = Flask(__name__)
+
+# Konfigurasi Database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///madrasah.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+# Model untuk menyimpan pesan kontak
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(255), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    def __repr__(self):
+        return f'<Message {self.id}: {self.name}>'
 
 madrasah_data = {
     'nama': 'Madrasah Hebat Bermartabat',
@@ -102,24 +120,31 @@ def contact():
         # Ambil data dari form
         name = request.form.get('name')
         email = request.form.get('email')
-        message = request.form.get('message')
+        message_text = request.form.get('message')
         
-        # Simpan ke file
-        messages_file = 'messages.txt'
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        # Validasi data
+        if not name or not email or not message_text:
+            return redirect(url_for('contact') + '?error=true')
         
-        with open(messages_file, 'a', encoding='utf-8') as f:
-            f.write(f"\n{'='*50}\n")
-            f.write(f"Waktu: {timestamp}\n")
-            f.write(f"Nama: {name}\n")
-            f.write(f"Email: {email}\n")
-            f.write(f"Pesan: {message}\n")
-        
-        # Redirect ke halaman kontak dengan pesan sukses
-        return redirect(url_for('contact') + '?success=true')
+        try:
+            # Simpan ke database
+            new_message = Message(name=name, email=email, message=message_text)
+            db.session.add(new_message)
+            db.session.commit()
+            
+            # Redirect ke halaman kontak dengan pesan sukses
+            return redirect(url_for('contact') + '?success=true')
+        except Exception as e:
+            db.session.rollback()
+            return redirect(url_for('contact') + '?error=true')
     
     # Kirim data kontak ke template
     return render_template('contact.html', data=madrasah_data)
+
+# Buat database tables saat aplikasi pertama kali dijalankan
+@app.before_request
+def create_tables():
+    db.create_all()
 
 if __name__ == '__main__':
     app.run(debug=True)

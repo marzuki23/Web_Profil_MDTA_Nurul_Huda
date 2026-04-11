@@ -107,6 +107,11 @@
                 Pesan Anda berhasil dikirim! Kami akan menghubungi Anda segera.
             </div>
             {% endif %}
+            {% if request.args.get('error') %}
+            <div class="alert alert-error" style="background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 12px; border-radius: 4px; margin-bottom: 20px; color: #721c24;">
+                Terjadi kesalahan. Pastikan semua field terisi dengan benar.
+            </div>
+            {% endif %}
             <form action="/contact" method="post" class="contact-form">
                 <div class="form-group">
                     <label for="name">Nama Lengkap</label>
