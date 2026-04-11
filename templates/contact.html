@@ -102,17 +102,7 @@
         </div>
         <div class="contact-form-container">
             <h3>Kirim Pesan</h3>
-            {% if request.args.get('success') %}
-            <div class="alert alert-success" style="background-color: #d4edda; border: 1px solid #c3e6cb; padding: 12px; border-radius: 4px; margin-bottom: 20px; color: #155724;">
-                Pesan Anda berhasil dikirim! Kami akan menghubungi Anda segera.
-            </div>
-            {% endif %}
-            {% if request.args.get('error') %}
-            <div class="alert alert-error" style="background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 12px; border-radius: 4px; margin-bottom: 20px; color: #721c24;">
-                Terjadi kesalahan. Pastikan semua field terisi dengan benar.
-            </div>
-            {% endif %}
-            <form action="/contact" method="post" class="contact-form">
+            <form action="#" method="post" class="contact-form">
                 <div class="form-group">
                     <label for="name">Nama Lengkap</label>
                     <input type="text" id="name" name="name" required>
